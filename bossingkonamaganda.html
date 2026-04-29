@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Swerte ko sayo 💖</title>
+
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #ff9eb5, #ffc3d1);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .card {
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(10px);
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    width: 350px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  }
+
+  img {
+    width: 200px;
+    border-radius: 12px;
+  }
+
+  button {
+    margin: 10px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+  #yesBtn {
+    background: #28c76f;
+    color: white;
+    font-size: 24px;
+    transition: all 0.3s ease;
+  }
+
+  #noBtn {
+    background: #ff4d4d;
+    color: white;
+  }
+
+  #videoContainer {
+    display: none;
+    margin-top: 20px;
+  }
+
+  video {
+    width: 100%;
+    border-radius: 12px;
+  }
+</style>
+</head>
+
+<body>
+
+<div class="card">
+  <h2 id="question">Punta tayo bossing sa caza peregrine at pinto art museum? 💕</h2>
+
+  <img id="gif" src="https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif"><br>
+
+  <button id="yesBtn" type="button">YES 💚</button>
+  <button id="noBtn" type="button">No</button>
+
+  <!-- 🎥 VIDEO PLACEHOLDER -->
+  <div id="videoContainer">
+    <h2>Hi bossing na maganda this is me doing a little clever webiste naks english 
+        just to make you smile today wala sana sumira ng araw mo. I always be
+        gratful na meet kita 💖 ready for more sidequest hihi
+    </h2>
+    <video controls>
+      <source src="assets/us.mp4" type="video/mp4">
+      Your browser does not support video.
+    </video>
+  </div>
+</div>
+
+<script>
+const texts = [
+  "Are you sure? 😢",
+  "Really sure? 🥺",
+  "Please? 💔",
+  "Don’t do this 😭",
+  "Last chance 😳"
+];
+
+const gifs = [
+  "https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif",
+  "https://media.giphy.com/media/l2JhpjWPccQhsAMfu/giphy.gif",
+  "https://media.giphy.com/media/OPU6wzx8JrHna/giphy.gif",
+  "https://media.giphy.com/media/ROF8OQvDmxytW/giphy.gif",
+  "https://media.giphy.com/media/26ufcVAp3AiJJsrIs/giphy.gif"
+];
+
+let index = 0;
+let size = 24;
+
+const question = document.getElementById("question");
+const gif = document.getElementById("gif");
+const noBtn = document.getElementById("noBtn");
+const yesBtn = document.getElementById("yesBtn");
+const videoContainer = document.getElementById("videoContainer");
+
+// NO button logic
+noBtn.addEventListener("click", () => {
+  index = (index + 1) % texts.length;
+
+  question.innerText = texts[index];
+  gif.src = gifs[index];
+
+  size += 8;
+  yesBtn.style.fontSize = size + "px";
+});
+
+// YES button logic
+yesBtn.addEventListener("click", () => {
+  question.innerText = "YAYYY 💖🥰";
+
+  gif.style.display = "none";
+  noBtn.style.display = "none";
+  yesBtn.style.display = "none";
+
+  videoContainer.style.display = "block";
+});
+</script>
+
+</body>
+</html>
